@@ -9,7 +9,7 @@ const Home = () => {
   const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
 
-  const { articles, loading, error } = useNews(search, category, page);
+  const { articles, loading, error, meta } = useNews(search, category, page);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
