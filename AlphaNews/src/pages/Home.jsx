@@ -3,6 +3,7 @@ import { useNews } from "../hooks/useNews";
 import NewsCard from "../components/NewsCard";
 import CategoryFilter from '../components/CategoryFilter';
 import Pagination from "../components/Pagination";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -34,7 +35,19 @@ const Home = () => {
       <CategoryFilter selected={category} onChange={setCategory} />
 
       {/* Loading */}
-      {loading && <p>Loading...</p>}
+      {/* {loading && <p>Loading...</p>} */}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {loading
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <div
+                key={i}
+                className="h-72 bg-gray-300 rounded-xl animate-pulse"
+                ></div>
+            ))
+            : articles.map((article) => <NewsCard key={article.uuid} article={article} />)}
+        </div>
+     
 
       {/* Error */}
       {error && <p className="text-red-500">{error}</p>}
