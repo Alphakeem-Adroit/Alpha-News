@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNews } from "../hooks/useNews";
 import NewsCard from "../components/NewsCard";
+import CategoryFilter from '../components/CategoryFilter';
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -20,6 +21,8 @@ const Home = () => {
         className="w-full md:w-1/2 p-3 mb-6 border rounded-lg"
         onChange={(e) => setSearch(e.target.value)}
       />
+
+      <CategoryFilter selected={category} onChange={setCategory} />
 
       {/* Loading */}
       {loading && <p>Loading...</p>}
