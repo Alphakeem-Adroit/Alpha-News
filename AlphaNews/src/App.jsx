@@ -1,14 +1,18 @@
 import './App.css'
 import './index.css'
+import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ArticlePage from "./pages/ArticlePage";
 
 
 function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">
-        News Reader App 🚀
-      </h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/article/:id" element={<ArticlePage />} />
+      </Routes>
+    </Router>
   );
 }
 
