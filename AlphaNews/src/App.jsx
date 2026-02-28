@@ -3,6 +3,7 @@ import './index.css'
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ArticlePage from "./pages/ArticlePage";
+import Favorites from './pages/Favorites';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/article/:id" element={<ArticlePage />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </Router>
   );
