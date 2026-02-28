@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNews } from "../hooks/useNews";
 import NewsCard from "../components/NewsCard";
 import CategoryFilter from '../components/CategoryFilter';
+import Pagination from "../components/Pagination";
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -35,6 +36,14 @@ const Home = () => {
         {articles?.map((article) => (
           <NewsCard key={article.uuid} article={article} />
         ))}
+
+        {meta?.last_page > 1 && (
+            <Pagination
+                currentPage={page}
+                totalPages={meta.last_page}
+                onPageChange={setPage}
+            />
+        )}
       </div>
     </div>
   );
